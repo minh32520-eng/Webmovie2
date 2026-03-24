@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>controller.BookingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CinemaServlet</servlet-name>
+        <servlet-class>controller.CinemaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PriceServlet</servlet-name>
+        <servlet-class>controller.PriceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewsServlet</servlet-name>
+        <servlet-class>controller.NewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PromotionServlet</servlet-name>
+        <servlet-class>controller.PromotionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>controller.AuthServlet</servlet-class>
+    </servlet>
+   <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>filter.AuthFilter</filter-class>
+</filter>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <!-- Showtime -->
+    <servlet>
+        <servlet-name>ShowtimePageServlet</servlet-name>
+        <servlet-class>controller.ShowtimePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowtimePageServlet</servlet-name>
+        <url-pattern>/showtime</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/booking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CinemaServlet</servlet-name>
+        <url-pattern>/cinema</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PriceServlet</servlet-name>
+        <url-pattern>/price</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewsServlet</servlet-name>
+        <url-pattern>/news</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PromotionServlet</servlet-name>
+        <url-pattern>/promotion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/pages/admin/*</url-pattern>
+</filter-mapping>
+
+</web-app>
