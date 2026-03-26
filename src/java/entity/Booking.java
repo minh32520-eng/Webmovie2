@@ -104,5 +104,31 @@ public class Booking {
         this.paidAt = paidAt;
     }
 
-    
+    private String movieTitle;
+    private String username;
+    private java.util.Date showtimeStart;
+
+    public String getMovieTitle() {
+        return movieTitle;
+    }
+
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public java.util.Date getShowtimeStart() {
+        return showtimeStart;
+    }
+
+    public void setShowtimeStart(java.util.Date showtimeStart) {
+        this.showtimeStart = showtimeStart;
+    }
 }

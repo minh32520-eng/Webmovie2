@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.Date;
@@ -16,21 +12,18 @@ public class Movie {
     private String language;
     private String director;
     private String castList;
-    private Date releaseDate;
-    private Date endDate;
     private double rating;
     private String ageLimit;
     private String status;
     private Date createdAt;
-  
-    
-    
-    // getter setter
 
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String poster, String description, int duration, String genre, String language, String director, String castList, Date releaseDate, Date endDate, double rating, String ageLimit, String status, Date createdAt) {
+    public Movie(int movieId, String title, String poster, String description,
+                 int duration, String genre, String language, String director,
+                 String castList, double rating, String ageLimit,
+                 String status, Date createdAt) {
         this.movieId = movieId;
         this.title = title;
         this.poster = poster;
@@ -40,8 +33,6 @@ public class Movie {
         this.language = language;
         this.director = director;
         this.castList = castList;
-        this.releaseDate = releaseDate;
-        this.endDate = endDate;
         this.rating = rating;
         this.ageLimit = ageLimit;
         this.status = status;
@@ -120,22 +111,6 @@ public class Movie {
         this.castList = castList;
     }
 
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
     public double getRating() {
         return rating;
     }
@@ -167,5 +142,4 @@ public class Movie {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
-    
 }

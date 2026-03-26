@@ -140,7 +140,7 @@ body {
 
         <!-- EMAIL -->
         <div class="input-group">
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email" value="${param.email}" required>
         </div>
 
         <!-- PASSWORD -->

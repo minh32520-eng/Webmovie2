@@ -1,28 +1,45 @@
 package controller;
 
+import dao.ShowtimeDAO;
+import entity.Showtime;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 
-@WebServlet(name = "BookingServlet", urlPatterns = {"/booking"})
 public class BookingServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // có thể nhận data từ request
+        
         String cinema = request.getParameter("cinema");
         String date = request.getParameter("date");
         String time = request.getParameter("time");
+        String showtimeIdRaw = request.getParameter("showtimeId");
 
-        // set sang JSP
+        Showtime s = null;
+
+        //  LẤY SHOWTIME TỪ DB
+        if (showtimeIdRaw != null && !showtimeIdRaw.isEmpty()) {
+            try {
+                int showtimeId = Integer.parseInt(showtimeIdRaw);
+                ShowtimeDAO dao = new ShowtimeDAO();
+                s = dao.getShowtimeById(showtimeId); 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        //  SET ATTRIBUTE
+        request.setAttribute("showtime", s);
         request.setAttribute("cinema", cinema);
         request.setAttribute("date", date);
         request.setAttribute("time", time);
+        request.setAttribute("showtimeId", showtimeIdRaw);
 
-        // chuyển sang trang chọn ghế
-        request.getRequestDispatcher("/pages/booking.jsp").forward(request, response);
+    
+        request.getRequestDispatcher("/pages/booking.jsp")
+               .forward(request, response);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class Room {
     private String status;
 
     
-    // getter setter
+
 
     public Room() {
     }

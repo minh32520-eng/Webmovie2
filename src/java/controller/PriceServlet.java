@@ -4,12 +4,15 @@
  */
 package controller;
 
+import dao.ShowtimeDAO;
+import entity.Showtime;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -29,7 +32,13 @@ public class PriceServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("/pages/price.jsp").forward(request, response);
+      ShowtimeDAO dao = new ShowtimeDAO();
+List<Showtime> list = dao.getAllShowtimesWithPrice();
+
+request.setAttribute("prices", list);
+
+request.getRequestDispatcher("/pages/price.jsp")
+       .forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

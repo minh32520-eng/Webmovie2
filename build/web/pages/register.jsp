@@ -110,17 +110,17 @@ body {
 
         <!-- USERNAME -->
         <div class="input-group">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="username" placeholder="Username" value="${param.username}" required>
         </div>
 
         <!-- EMAIL -->
         <div class="input-group">
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email" value="${param.email}" required>
         </div>
 
         <!-- PASSWORD -->
         <div class="input-group password-box">
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="Password"  required>
             <span onclick="togglePass('password','icon1')">
                 <i id="icon1" class="fa-solid fa-eye"></i>
             </span>
@@ -128,7 +128,7 @@ body {
 
         <!-- CONFIRM PASSWORD -->
         <div class="input-group password-box">
-            <input type="password" id="confirm" placeholder="Confirm Password" required>
+            <input type="password" name="confirm" id="confirm" placeholder="Confirm Password" required>
             <span onclick="togglePass('confirm','icon2')">
                 <i id="icon2" class="fa-solid fa-eye"></i>
             </span>

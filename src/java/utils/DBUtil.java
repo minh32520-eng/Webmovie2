@@ -16,7 +16,7 @@ import java.sql.DriverManager;
 public class DBUtil {
 
     private static final String URL =
-        "jdbc:sqlserver://localhost:1433;databaseName=booking_ticket_cinemamain;encrypt=true;trustServerCertificate=true";
+        "jdbc:sqlserver://localhost:1433;databaseName=Cinema;encrypt=true;trustServerCertificate=true";
 
     private static final String USER = "sa";
     private static final String PASSWORD = "123";
@@ -29,5 +29,15 @@ public class DBUtil {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static void main(String[] args) {
+        DBUtil db=new DBUtil();
+        if(db.getConnection()!=null){
+            System.out.println("ket noi thanh cong");
+        }else {
+            System.out.println("ket noi that bai");
+        }
+                
     }
 }

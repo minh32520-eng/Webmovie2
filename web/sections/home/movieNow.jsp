@@ -70,9 +70,9 @@
     transform: translateX(-50%);
     background: #2f5597;
     color: white;
-    border: none;
     padding: 10px 25px;
     border-radius: 10px;
+    text-decoration: none;
     transition: 0.3s;
 }
 .movie-card:hover .buy-btn {
@@ -81,18 +81,22 @@
 </style>
 
 <div class="movie-list">
-
 <% if (movies != null && !movies.isEmpty()) {
-    for (Movie m : movies) { %>
+    for (Movie m : movies) {
 
-    <div class="movie-card">
+        String age = m.getAgeLimit() != null ? m.getAgeLimit() : "K";
+%>
+
+    <div class="movie-card"
+         onclick="window.location.href='${pageContext.request.contextPath}/moviedetail?id=<%= m.getMovieId() %>'">
+
         <div class="movie-img">
 
             <!-- TAG -->
             <span class="tag 
-                <%= "K".equals(m.getAgeLimit()) ? "k" :
-                    "T13".equals(m.getAgeLimit()) ? "t13" : "t18" %>">
-                <%= m.getAgeLimit() %>
+                <%= "K".equals(age) ? "k" :
+                    "T13".equals(age) ? "t13" : "t18" %>">
+                <%= age %>
             </span>
 
             <!-- POSTER -->
@@ -111,8 +115,9 @@
             </div>
 
             <!-- BUTTON -->
-            <a href="${pageContext.request.contextPath}/showtime?movieId=<%= m.getMovieId() %>">
-                <button class="buy-btn">🎟️ MUA VÉ</button>
+            <a class="buy-btn"
+               href="${pageContext.request.contextPath}/showtime?movieId=<%= m.getMovieId() %>">
+               🎟️ MUA VÉ
             </a>
 
         </div>
@@ -120,9 +125,6 @@
 
 <%  }
 } else { %>
-
     <p>Không có phim nào đang chiếu</p>
-
 <% } %>
-
 </div>

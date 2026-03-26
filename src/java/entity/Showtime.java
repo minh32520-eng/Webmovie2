@@ -1,24 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.Date;
 
 public class Showtime {
+
     private int showtimeId;
     private int movieId;
     private int roomId;
     private Date startTime;
     private Date endTime;
+
     private String format;
     private String status;
+
+    
+    private String movieTitle;
+    private String poster;
+
+   
+    private double priceStd;
+    private double priceVip;
+    private double priceCouple;
 
     public Showtime() {
     }
 
-    public Showtime(int showtimeId, int movieId, int roomId, Date startTime, Date endTime, String format, String status) {
+    public Showtime(int showtimeId, int movieId, int roomId,
+                    Date startTime, Date endTime,
+                    String format, String status) {
         this.showtimeId = showtimeId;
         this.movieId = movieId;
         this.roomId = roomId;
@@ -27,6 +36,8 @@ public class Showtime {
         this.format = format;
         this.status = status;
     }
+
+   
 
     public int getShowtimeId() {
         return showtimeId;
@@ -84,5 +95,57 @@ public class Showtime {
         this.status = status;
     }
 
-    
+   
+
+    public String getMovieTitle() {
+        return movieTitle;
+    }
+
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+
+    public double getPriceStd() {
+        return priceStd;
+    }
+
+    public void setPriceStd(double priceStd) {
+        this.priceStd = priceStd;
+    }
+
+    public double getPriceVip() {
+        return priceVip;
+    }
+
+    public void setPriceVip(double priceVip) {
+        this.priceVip = priceVip;
+    }
+
+    public double getPriceCouple() {
+        return priceCouple;
+    }
+
+    public void setPriceCouple(double priceCouple) {
+        this.priceCouple = priceCouple;
+    }
+
+
+private String cinemaName;
+
+public String getCinemaName() {
+    return cinemaName;
+}
+
+public void setCinemaName(String cinemaName) {
+    this.cinemaName = cinemaName;
+}
 }

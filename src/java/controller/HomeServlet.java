@@ -4,7 +4,6 @@ import dao.MovieDAO;
 import dao.ShowtimeDAO;
 import entity.Movie;
 import entity.Showtime;
-
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import java.io.IOException;
@@ -15,19 +14,28 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // MOVIE
-        MovieDAO dao = new MovieDAO();
+        // MOVIE 
+
+
+     MovieDAO dao = new MovieDAO();
         List<Movie> movies = dao.getAllMovies();
+        List<Movie> now = dao.getMoviesByStatus("NOW_SHOWING");
+        List<Movie> coming = dao.getMoviesByStatus("COMING_SOON");
+        List<Movie> special = dao.getMoviesByStatus("SPECIAL_SHOW");
 
-        // SHOWTIME HOT
+        request.setAttribute("nowMovies", now);
+        request.setAttribute("comingMovies", coming);
+        request.setAttribute("specialMovies", special);
+        
+        
+        
+        //  SHOWTIME HOT 
         ShowtimeDAO showtimeDAO = new ShowtimeDAO();
-        List<Showtime> hot = showtimeDAO.getHotShowtimes();
+        List<Showtime> hotShowtimes = showtimeDAO.getHotShowtimes();
 
-        // SET ATTRIBUTE
-        request.setAttribute("movies", movies);
-        request.setAttribute("hotShowtimes", hot);
+        request.setAttribute("hotShowtimes", hotShowtimes);
 
-        // FORWARD
+        //  FORWARD 
         request.getRequestDispatcher("/pages/home.jsp")
                .forward(request, response);
     }

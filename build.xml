@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="Webgame" default="default" basedir=".">
-    <description>Builds, tests, and runs the project Webgame.</description>
+<project name="WebTicketMovie" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WebTicketMovie.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

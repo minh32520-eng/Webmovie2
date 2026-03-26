@@ -13,7 +13,7 @@ public class Seat {
     private boolean isActive;
 
     
-    // getter setter
+    
 
     public Seat() {
     }
@@ -74,5 +74,13 @@ public class Seat {
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-    
+    private double price;
+
+public double getPrice() {
+    return price;
+}
+
+public void setPrice(double price) {
+    this.price = price;
+}
 }

@@ -92,8 +92,8 @@
         }
 
         function confirmBooking() {
-            window.location.href = "BookingServlet";
-        }
+    window.location.href = "booking";
+}
     </script>
 </head>
 

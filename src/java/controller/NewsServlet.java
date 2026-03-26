@@ -4,12 +4,15 @@
  */
 package controller;
 
+import dao.NewsDAO;
+import entity.News;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -29,7 +32,16 @@ public class NewsServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       request.getRequestDispatcher("/pages/news.jsp").forward(request, response);
+      NewsDAO dao = new NewsDAO();
+
+List<News> newsList = dao.getByType("NEWS");
+List<News> promoList = dao.getByType("PROMOTION");
+
+request.setAttribute("newsList", newsList);
+request.setAttribute("promoList", promoList);
+
+request.getRequestDispatcher("/pages/news.jsp")
+       .forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -1,89 +1,77 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, entity.News" %>
+
+<%
+List<News> newsList = (List<News>) request.getAttribute("newsList");
+List<News> promoList = (List<News>) request.getAttribute("promoList");
+%>
 
 <style>
-.news-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
+.section {
+    margin: 40px auto;
+    max-width: 1100px;
 }
 
-/* TITLE */
-.news-title {
+.title {
     font-size: 22px;
     font-weight: bold;
-    color: #1e3a8a;
     margin-bottom: 20px;
+    color: #1e3a8a;
 }
 
-/* LIST */
-.news-list {
+.card-list {
     display: flex;
     gap: 20px;
 }
 
-/* CARD */
-.news-card {
-    width: 30%;
+.card {
+    width: 250px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: 0.3s;
-    cursor: pointer;
 }
 
-.news-card:hover {
+.card:hover {
     transform: translateY(-5px);
 }
 
-/* IMAGE */
-.news-card img {
+.card img {
     width: 100%;
-    height: 160px;
+    height: 150px;
     object-fit: cover;
 }
 
-/* CONTENT */
-.news-content {
+.card-title {
     padding: 10px;
-}
-
-.news-text {
-    font-size: 14px;
     font-weight: bold;
+    font-size: 14px;
 }
 </style>
 
-<div class="news-container">
-
-    <div class="news-title">TIN TỨC & ƯU ĐÃI</div>
-
-    <div class="news-list">
-
-        <!-- CARD 1 -->
-        <div class="news-card">
-            <img src="https://www.betacinemas.vn/Assets/Common/movie/noimage.jpg">
-            <div class="news-content">
-                <div class="news-text">Phim mới tháng 4</div>
-            </div>
+<!-- NEWS -->
+<div class="section">
+    <div class="title">TIN TỨC</div>
+    <div class="card-list">
+        <% for(News n : newsList){ %>
+        <div class="card">
+            <img src="<%= n.getImage() %>">
+            <div class="card-title"><%= n.getTitle() %></div>
         </div>
-
-        <!-- CARD 2 -->
-        <div class="news-card">
-            <img src="https://www.betacinemas.vn/Assets/Common/movie/noimage.jpg">
-            <div class="news-content">
-                <div class="news-text">Khuyến mãi mùa hè</div>
-            </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="news-card">
-            <img src="https://www.betacinemas.vn/Assets/Common/movie/noimage.jpg">
-            <div class="news-content">
-                <div class="news-text">Review phim hot</div>
-            </div>
-        </div>
-
+        <% } %>
     </div>
+</div>
 
+<!-- PROMOTION -->
+<div class="section">
+    <div class="title">ƯU ĐÃI</div>
+    <div class="card-list">
+        <% for(News n : promoList){ %>
+        <div class="card">
+            <img src="<%= n.getImage() %>">
+            <div class="card-title"><%= n.getTitle() %></div>
+        </div>
+        <% } %>
+    </div>
 </div>
